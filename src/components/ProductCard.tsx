@@ -32,8 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode = 'grid' })
       id: product.id,
       name: product.name,
       price: product.price,
-      image: product.image,
-      quantity: 1
+      image: product.image
     });
   };
 

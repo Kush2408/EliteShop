@@ -1,11 +1,10 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CreditCard, MapPin, User, Mail, Phone } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
 
 const Checkout = () => {
-  const { cartItems, getTotalPrice, clearCart } = useCart();
+  const { cartItems, total, clearCart } = useCart();
   const [formData, setFormData] = useState({
     email: '',
     firstName: '',
@@ -34,9 +33,9 @@ const Checkout = () => {
     clearCart();
   };
 
-  const subtotal = getTotalPrice();
+  const subtotal = total;
   const tax = subtotal * 0.1;
-  const total = subtotal + tax;
+  const totalAmount = subtotal + tax;
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -239,7 +238,7 @@ const Checkout = () => {
               </div>
               <div className="flex justify-between text-lg font-semibold border-t border-gray-200 dark:border-gray-700 pt-3">
                 <span>Total</span>
-                <span>${total.toFixed(2)}</span>
+                <span>${totalAmount.toFixed(2)}</span>
               </div>
             </div>
 

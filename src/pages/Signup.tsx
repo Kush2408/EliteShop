@@ -30,7 +30,7 @@ const Signup = () => {
       alert('Passwords do not match');
       return;
     }
-    signup(formData.email, formData.password, formData.firstName, formData.lastName);
+    signup(formData.email, formData.password, `${formData.firstName} ${formData.lastName}`);
   };
 
   return (

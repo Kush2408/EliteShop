@@ -31,13 +31,14 @@ const ProductDetail = () => {
   const images = [product.image, product.image, product.image]; // Simulate multiple images
 
   const handleAddToCart = () => {
-    addToCart({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      quantity: quantity
-    });
+    for (let i = 0; i < quantity; i++) {
+      addToCart({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image
+      });
+    }
   };
 
   const handleToggleWishlist = () => {

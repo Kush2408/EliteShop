@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext';
 
 const Cart = () => {
-  const { cartItems, updateQuantity, removeFromCart, getTotalPrice } = useCart();
+  const { cartItems, updateQuantity, removeFromCart, total } = useCart();
 
   if (cartItems.length === 0) {
     return (
@@ -117,7 +117,7 @@ const Cart = () => {
             <div className="space-y-4 mb-6">
               <div className="flex justify-between">
                 <span>Subtotal</span>
-                <span>${getTotalPrice().toFixed(2)}</span>
+                <span>${total.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
                 <span>Shipping</span>
@@ -125,12 +125,12 @@ const Cart = () => {
               </div>
               <div className="flex justify-between">
                 <span>Tax</span>
-                <span>${(getTotalPrice() * 0.1).toFixed(2)}</span>
+                <span>${(total * 0.1).toFixed(2)}</span>
               </div>
               <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
                 <div className="flex justify-between text-lg font-semibold">
                   <span>Total</span>
-                  <span>${(getTotalPrice() * 1.1).toFixed(2)}</span>
+                  <span>${(total * 1.1).toFixed(2)}</span>
                 </div>
               </div>
             </div>
