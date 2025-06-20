@@ -1,19 +1,32 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Mail, Lock, Eye, EyeOff, Info } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
   const { login } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    login(email, password);
+    setError('');
+    try {
+      await login(email, password);
+      navigate('/');
+    } catch (err) {
+      setError('Invalid email or password');
+    }
+  };
+
+  const fillAdminCredentials = () => {
+    setEmail('admin@example.com');
+    setPassword('Admin@123');
   };
 
   return (
@@ -31,6 +44,42 @@ const Login = () => {
             Sign in to your account
           </p>
         </div>
+
+        {/* Admin Demo Info */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800"
+        >
+          <div className="flex items-start space-x-3">
+            <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
+            <div>
+              <p className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">
+                Demo Admin Access
+              </p>
+              <p className="text-xs text-blue-600 dark:text-blue-300 mb-2">
+                Email: admin@example.com<br />
+                Password: Admin@123
+              </p>
+              <button
+                onClick={fillAdminCredentials}
+                className="text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors"
+              >
+                Auto-fill Admin Credentials
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        {error && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
+          >
+            <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+          </motion.div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>

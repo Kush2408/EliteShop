@@ -36,17 +36,37 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Mock user data
-    const userData: User = {
-      id: '1',
-      email,
-      name: email.split('@')[0],
-      role: email === 'admin@eliteshop.com' ? 'admin' : 'user'
-    };
+    // Admin credentials check
+    if (email === 'admin@example.com' && password === 'Admin@123') {
+      const userData: User = {
+        id: 'admin-1',
+        email,
+        name: 'Admin User',
+        role: 'admin'
+      };
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+      setLoading(false);
+      return;
+    }
     
-    setUser(userData);
-    localStorage.setItem('user', JSON.stringify(userData));
+    // Regular user login (any valid email/password)
+    if (email && password) {
+      const userData: User = {
+        id: '1',
+        email,
+        name: email.split('@')[0],
+        role: 'user'
+      };
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+      setLoading(false);
+      return;
+    }
+    
+    // Invalid credentials
     setLoading(false);
+    throw new Error('Invalid credentials');
   };
 
   const signup = async (email: string, password: string, name: string) => {
