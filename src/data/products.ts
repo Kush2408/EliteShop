@@ -126,8 +126,190 @@ export const products: Product[] = [
     inStock: true,
     colors: ['Blue', 'Red', 'Black'],
     tags: ['portable', 'music']
-  }
-];
+  },
+  {
+    id: "7",
+    name: "AirPods Pro Max Wireless",
+    price: 45999,
+    originalPrice: 54999,
+    image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    ],
+    category: "Electronics",
+    description: "Premium over-ear headphones with spatial audio and active noise cancellation. Experience studio-quality sound with up to 20 hours of battery life.",
+    features: ["Spatial Audio", "Active Noise Cancellation", "20hr Battery", "Premium Build"],
+    rating: 4.8,
+    reviews: 2156,
+    inStock: true,
+    colors: ["Space Grey", "Silver", "Sky Blue", "Pink", "Green"],
+    tags: ["premium", "bestseller", "audio"]
+  },
+{
+  id: "8",
+  name: "Silk Kurta Set - Royal Blue",
+  price: 3499,
+  originalPrice: 4999,
+  image: "https://assets0.mirraw.com/images/8360461/image_zoom.jpeg?1602665754",
+  images: [
+    "https://<your-cdn-or-local-path>/silk-kurta-royal-blue.jpg"
+  ],
+  category: "Fashion",
+  description: "Elegant handwoven silk kurta with intricate embroidery and matching dupatta. Perfect for festivals, weddings, and special occasions.",
+  features: ["Handwoven Silk", "Embroidered Design", "Matching Dupatta", "Traditional Craft"],
+  rating: 4.6,
+  reviews: 847,
+  inStock: true,
+  sizes: ["S", "M", "L", "XL", "XXL"],
+  colors: ["Royal Blue", "Emerald Green", "Maroon", "Golden"],
+  tags: ["traditional", "festive", "premium"]
+},
+
+  {
+    id: "9",
+    name: "Smart Air Purifier Pro",
+    price: 12999,
+    originalPrice: 15999,
+    image: "https://cdn.shopify.com/s/files/1/0279/4559/9064/products/01.00_OA1_PlasmaPro400S_07.jpg?v=1631052785",
+    images: [
+      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    ],
+    category: "Home",
+    description: "WiFi-enabled air purifier with HEPA filter and real-time air quality monitoring. Covers up to 500 sq ft with whisper-quiet operation.",
+    features: ["HEPA Filter", "WiFi Enabled", "500 sq ft Coverage", "Quiet Operation"],
+    rating: 4.7,
+    reviews: 1234,
+    inStock: true,
+    colors: ["White", "Black"],
+    tags: ["smart", "health", "featured"]
+  },
+  {
+    id: "10",
+    name: "Vitamin C Glow Serum",
+    price: 1899,
+    originalPrice: 2499,
+    image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    ],
+    category: "Beauty",
+    description: "20% Vitamin C brightening serum with hyaluronic acid for radiant skin. Clinically proven to reduce dark spots and boost collagen production.",
+    features: ["20% Vitamin C", "Hyaluronic Acid", "Dark Spot Reduction", "Dermatologist Tested"],
+    rating: 4.9,
+    reviews: 3421,
+    inStock: true,
+    tags: ["skincare", "bestseller", "vegan"]
+  },
+  {
+    id: "11",
+    name: "Yoga Mat Pro - Eco Bamboo",
+    price: 2299,
+    originalPrice: 2999,
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    ],
+    category: "Sports",
+    description: "Premium 6mm thick yoga mat made from sustainable bamboo fiber. Non-slip surface with alignment guides for perfect poses every time.",
+    features: ["6mm Thickness", "Bamboo Fiber", "Non-slip Surface", "Alignment Guides"],
+    rating: 4.5,
+    reviews: 678,
+    inStock: true,
+    colors: ["Natural", "Deep Purple", "Ocean Blue"],
+    tags: ["eco-friendly", "fitness", "premium"]
+  },
+  {
+    id: "12",
+    name: "Gaming Laptop RTX 4060",
+    price: 89999,
+    originalPrice: 99999,
+    image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    ],
+    category: "Electronics",
+    description: "High-performance gaming laptop with RTX 4060, 15.6-inch 144Hz display. Perfect for gaming, streaming, and creative work with RGB keyboard.",
+    features: ["RTX 4060 GPU", "144Hz Display", "RGB Keyboard", "16GB RAM"],
+    rating: 4.7,
+    reviews: 1876,
+    inStock: true,
+    colors: ["Black", "Space Grey"],
+    tags: ["gaming", "performance", "featured"]
+  },
+  {
+    id: "13",
+    name: "Designer Handbag - Tan Leather",
+    price: 8999,
+    originalPrice: 12999,
+    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    ],
+    category: "Fashion",
+    description: "Handcrafted genuine leather handbag with gold hardware and multiple compartments. Timeless design that complements both casual and formal outfits.",
+    features: ["Genuine Leather", "Gold Hardware", "Multiple Compartments", "Handcrafted"],
+    rating: 4.7,
+    reviews: 542,
+    inStock: true,
+    colors: ["Tan", "Black", "Burgundy", "Navy"],
+    tags: ["luxury", "leather", "timeless"]
+  },
+  {
+    id: "14",
+    name: "Smart Coffee Maker Deluxe",
+    price: 15999,
+    originalPrice: 19999,
+    image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    ],
+    category: "Home",
+    description: "App-controlled coffee maker with built-in grinder and temperature control. Schedule your perfect brew and wake up to fresh coffee every morning.",
+    features: ["Built-in Grinder", "App Control", "Temperature Control", "Programmable"],
+    rating: 4.6,
+    reviews: 934,
+    inStock: true,
+    colors: ["Stainless Steel", "Black"],
+    tags: ["smart", "appliance", "gift"]
+  },
+  {
+    id: "15",
+    name: "Luxury Face Cream Set",
+    price: 4599,
+    originalPrice: 5999,
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    ],
+    category: "Beauty",
+    description: "Premium anti-aging face cream with retinol and peptides in elegant packaging. Reduces fine lines and improves skin texture for a youthful glow.",
+    features: ["Retinol Formula", "Peptide Complex", "Anti-aging", "Luxury Packaging"],
+    rating: 4.8,
+    reviews: 1567,
+    inStock: true,
+    tags: ["luxury", "anti-aging", "gift"]
+  },
+  {
+    id: "16",
+    name: "Resistance Band Set Pro",
+    price: 1799,
+    originalPrice: 2499,
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    ],
+    category: "Sports",
+    description: "Complete resistance training set with 5 bands, door anchor, and workout guide. Build strength and muscle at home with this portable gym solution.",
+    features: ["5 Resistance Levels", "Door Anchor", "Workout Guide", "Portable Design"],
+    rating: 4.4,
+    reviews: 892,
+    inStock: true,
+    colors: ["Multi-color", "Black Set"],
+    tags: ["fitness", "home-workout", "bestseller"]
+  },
+]
+
 
 export const categories = [
   { id: 'electronics', name: 'Electronics', count: 15 },

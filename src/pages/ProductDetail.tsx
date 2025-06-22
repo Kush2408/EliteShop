@@ -124,7 +124,7 @@ const ProductDetail = () => {
               </div>
               
               <p className="text-4xl font-bold text-blue-600 dark:text-blue-400 mt-4">
-                ${product.price}
+                ₹{product.price}
               </p>
             </div>
 
@@ -186,7 +186,7 @@ const ProductDetail = () => {
               <div className="flex items-center space-x-3">
                 <Truck className="h-5 w-5 text-green-600" />
                 <span className="text-sm text-gray-600 dark:text-gray-400">
-                  Free shipping on orders over $50
+                  Free shipping on orders over ₹50
                 </span>
               </div>
               <div className="flex items-center space-x-3">

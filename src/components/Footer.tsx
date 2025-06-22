@@ -13,9 +13,22 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">E</span>
+                <motion.img
+                  whileHover={{ scale: 1.05 }}
+                  src="/letter-e.png"
+                  alt="EliteShop Logo"
+                  className="w-8 h-8 rounded-lg object-cover"
+                />
               </div>
-              <span className="text-xl font-bold">EliteShop</span>
+              <motion.span
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05, rotate: -1 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="text-xl font-extrabold tracking-wide bg-gradient-to-r from-sky-400 to-cyan-500 bg-clip-text text-transparent select-none"
+              >
+                EliteShop
+              </motion.span>
             </div>
             <p className="text-gray-400">
               Your premium destination for the latest trends and quality products.

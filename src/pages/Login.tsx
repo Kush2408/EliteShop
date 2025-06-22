@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff, Info } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 const Login = () => {
@@ -12,13 +11,23 @@ const Login = () => {
   const [error, setError] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     try {
       await login(email, password);
-      navigate('/');
+      navigate(from);
+      // ✅ Redirect based on role
+      const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
+      if (storedUser?.role === 'admin') {
+        navigate('/');
+      } else {
+        navigate(from);
+      }
     } catch (err) {
       setError('Invalid email or password');
     }
