@@ -130,8 +130,8 @@ export const products: Product[] = [
   {
     id: "7",
     name: "AirPods Pro Max Wireless",
-    price: 45999,
-    originalPrice: 54999,
+    price: 4599,
+    originalPrice: 5499,
     image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     images: [
       "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
@@ -149,8 +149,8 @@ export const products: Product[] = [
 {
   id: "8",
   name: "Silk Kurta Set - Royal Blue",
-  price: 3499,
-  originalPrice: 4999,
+  price: 349,
+  originalPrice: 499,
   image: "https://assets0.mirraw.com/images/8360461/image_zoom.jpeg?1602665754",
   images: [
     "https://<your-cdn-or-local-path>/silk-kurta-royal-blue.jpg"
@@ -169,8 +169,8 @@ export const products: Product[] = [
   {
     id: "9",
     name: "Smart Air Purifier Pro",
-    price: 12999,
-    originalPrice: 15999,
+    price: 1299,
+    originalPrice: 1599,
     image: "https://cdn.shopify.com/s/files/1/0279/4559/9064/products/01.00_OA1_PlasmaPro400S_07.jpg?v=1631052785",
     images: [
       "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
@@ -204,8 +204,8 @@ export const products: Product[] = [
   {
     id: "11",
     name: "Yoga Mat Pro - Eco Bamboo",
-    price: 2299,
-    originalPrice: 2999,
+    price: 229,
+    originalPrice: 299,
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     images: [
       "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
@@ -222,8 +222,8 @@ export const products: Product[] = [
   {
     id: "12",
     name: "Gaming Laptop RTX 4060",
-    price: 89999,
-    originalPrice: 99999,
+    price: 8999,
+    originalPrice: 9999,
     image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     images: [
       "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
@@ -240,8 +240,8 @@ export const products: Product[] = [
   {
     id: "13",
     name: "Designer Handbag - Tan Leather",
-    price: 8999,
-    originalPrice: 12999,
+    price: 899,
+    originalPrice: 1299,
     image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     images: [
       "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
@@ -258,8 +258,8 @@ export const products: Product[] = [
   {
     id: "14",
     name: "Smart Coffee Maker Deluxe",
-    price: 15999,
-    originalPrice: 19999,
+    price: 1599,
+    originalPrice: 1999,
     image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     images: [
       "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
@@ -276,8 +276,8 @@ export const products: Product[] = [
   {
     id: "15",
     name: "Luxury Face Cream Set",
-    price: 4599,
-    originalPrice: 5999,
+    price: 459,
+    originalPrice: 599,
     image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     images: [
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"

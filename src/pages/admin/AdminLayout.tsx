@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Outlet, Link, useLocation } from 'react-router-dom';
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   LayoutDashboard,
@@ -16,7 +16,9 @@ import { useAuth } from '../../contexts/AuthContext';
 const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
-  const { logout } = useAuth();
+  // const { logout } = useAuth();
+const navigate = useNavigate();
+
 
   const navigation = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
@@ -45,7 +47,7 @@ const AdminLayout = () => {
               <X className="h-6 w-6 text-white" />
             </button>
           </div>
-          
+
           <div className="h-0 flex-1 overflow-y-auto pt-5 pb-4">
             <div className="flex flex-shrink-0 items-center px-4">
               <h1 className="text-xl font-bold">Admin Panel</h1>
@@ -57,11 +59,10 @@ const AdminLayout = () => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                      isActive
+                    className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${isActive
                         ? 'bg-blue-100 text-blue-900'
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                    }`}
+                      }`}
                   >
                     <item.icon className="mr-3 h-5 w-5" />
                     {item.name}
@@ -87,11 +88,10 @@ const AdminLayout = () => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors ${
-                      isActive
+                    className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors ${isActive
                         ? 'bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-100'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
-                    }`}
+                      }`}
                   >
                     <item.icon className="mr-3 h-5 w-5" />
                     {item.name}
@@ -99,16 +99,19 @@ const AdminLayout = () => {
                 );
               })}
             </nav>
-            
+
             <div className="px-2">
               <button
-                onClick={logout}
+                onClick={() => {
+                  navigate('/');
+                }}
                 className="group flex w-full items-center px-2 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 <LogOut className="mr-3 h-5 w-5" />
-                Logout
+                Back To Dashboard
               </button>
             </div>
+
           </div>
         </div>
       </div>

@@ -1,16 +1,21 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, User, Heart, ShoppingCart, Menu, X, Sun, Moon } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
 import { useWishlist } from '../contexts/WishlistContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
+import { products } from '@/data/products';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedTerm, setDebouncedTerm] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  const navigate = useNavigate();
   const { cartItems } = useCart();
   const { wishlistItems } = useWishlist();
   const { isDarkMode, toggleDarkMode } = useTheme();
@@ -25,7 +30,32 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedTerm(searchTerm);
+    }, 300); // debounce delay
+
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
+
+  useEffect(() => {
+    if (debouncedTerm.trim()) {
+      const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(debouncedTerm.toLowerCase())
+      );
+      setSuggestions(filtered.slice(0, 5));
+    } else {
+      setSuggestions([]);
+    }
+  }, [debouncedTerm]);
+
   const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  const handleSuggestionClick = (id: string) => {
+    setSearchTerm('');
+    setSuggestions([]);
+    navigate(`/products/${id}`); // ✅ Update if your route differs
+  };
 
   return (
     <motion.header
@@ -56,7 +86,6 @@ const Header = () => {
               EliteShop
             </motion.span>
 
-
           </Link>
 
 
@@ -77,16 +106,30 @@ const Header = () => {
           </nav>
 
           {/* Search Bar */}
-          <div className="hidden lg:flex items-center flex-1 max-w-md mx-8">
-            <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-              <input
-                type="text"
-                placeholder="Search products..."
-                className="w-full pl-10 pr-4 py-2 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-              />
-            </div>
+          <div className="hidden lg:flex items-center flex-1 max-w-md mx-8 relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4 z-10" />
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search products..."
+              className="w-full pl-10 pr-4 py-2 bg-white/70 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+            />
+            {suggestions.length > 0 && (
+              <ul className="absolute top-full left-0 w-full mt-2 bg-white dark:bg-gray-900 shadow-lg rounded-lg z-50 max-h-60 overflow-y-auto">
+                {suggestions.map(product => (
+                  <li
+                    key={product.id}
+                    onClick={() => handleSuggestionClick(product.id)}
+                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition"
+                  >
+                    {product.name}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
+
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
@@ -191,13 +234,30 @@ const Header = () => {
                 <Link to="/about" className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   About
                 </Link>
-                <div className="pt-2">
+                <div className="hidden lg:flex items-center flex-1 max-w-md mx-8 relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                   <input
                     type="text"
                     placeholder="Search products..."
-                    className="w-full px-4 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                   />
+                  {suggestions.length > 0 && (
+                    <ul className="absolute top-full left-0 w-full mt-2 bg-white dark:bg-gray-900 shadow-lg rounded-lg z-50">
+                      {suggestions.map(product => (
+                        <li
+                          key={product.id}
+                          onClick={() => handleSuggestionClick(product.id)}
+                          className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition"
+                        >
+                          {product.name}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
+
               </div>
             </motion.div>
           )}

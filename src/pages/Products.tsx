@@ -11,24 +11,25 @@ const Products = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [sortBy, setSortBy] = useState('name');
 
-  const categories = ['all', 'electronics', 'clothing', 'home', 'books', 'sports'];
+  const categories = ['all', 'electronics', 'fashion', 'home', 'sports'];
 
-  const filteredProducts = products
-    .filter(product => 
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (selectedCategory === 'all' || product.category === selectedCategory)
-    )
-    .sort((a, b) => {
-      switch (sortBy) {
-        case 'price-low':
-          return a.price - b.price;
-        case 'price-high':
-          return b.price - a.price;
-        case 'name':
-        default:
-          return a.name.localeCompare(b.name);
-      }
-    });
+const filteredProducts = products
+  .filter(product =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    (selectedCategory === 'all' || product.category.toLowerCase() === selectedCategory.toLowerCase())
+  )
+  .sort((a, b) => {
+    switch (sortBy) {
+      case 'price-low':
+        return a.price - b.price;
+      case 'price-high':
+        return b.price - a.price;
+      case 'name':
+      default:
+        return a.name.localeCompare(b.name);
+    }
+  });
+
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50 dark:bg-gray-900">

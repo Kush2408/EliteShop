@@ -28,7 +28,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (storedUser) {
         const parsedUser = JSON.parse(storedUser);
         setUser(parsedUser);
-        console.log("🔄 Restored user from localStorage:", parsedUser);
+        // console.log("🔄 Restored user from localStorage:", parsedUser);
       }
     } catch (error) {
       console.error("❌ Failed to parse user from localStorage", error);
@@ -50,7 +50,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       };
       setUser(adminUser);
       localStorage.setItem('user', JSON.stringify(adminUser));
-      console.log("✅ Logged in as admin:", adminUser);
+      // console.log("✅ Logged in as admin:", adminUser);
       setLoading(false);
       return;
     }

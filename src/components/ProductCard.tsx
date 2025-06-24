@@ -194,7 +194,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode = 'grid' })
         
         <div className="flex items-center justify-between">
           <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
-            ₹{product.price}
+            ${product.price}
           </span>
           
           <motion.button

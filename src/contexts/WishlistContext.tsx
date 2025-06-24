@@ -1,6 +1,7 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
-
+import { useAuth } from './AuthContext'; // ✅ Import Auth context
+import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom'; // ✅ Import useNavigate for redirection
 interface WishlistItem {
   id: string;
   name: string;
@@ -18,16 +19,38 @@ interface WishlistContextType {
 const WishlistContext = createContext<WishlistContextType | undefined>(undefined);
 
 export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>(() => {
-    const saved = localStorage.getItem('wishlistItems');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const { user } = useAuth(); // ✅ Use the user state from Auth
+  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
+  const navigate = useNavigate(); // ✅ Use navigate for redirection
 
+  // Load saved wishlist from localStorage when user logs in
   useEffect(() => {
-    localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
-  }, [wishlistItems]);
+    if (user) {
+      const saved = localStorage.getItem('wishlistItems');
+      if (saved) {
+        setWishlistItems(JSON.parse(saved));
+      }
+    } else {
+      // Clear wishlist on logout
+      setWishlistItems([]);
+      localStorage.removeItem('wishlistItems');
+    }
+  }, [user]);
+
+  // Save wishlist to localStorage only if logged in
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+    }
+  }, [wishlistItems, user]);
 
   const addToWishlist = (item: WishlistItem) => {
+    if (!user) {
+      toast.error('Please login to add items to your wishlist.');
+      navigate('/login'); // ✅ Redirect to login
+      return;
+    }
+
     setWishlistItems(prev => {
       if (prev.find(wishlistItem => wishlistItem.id === item.id)) {
         return prev;
