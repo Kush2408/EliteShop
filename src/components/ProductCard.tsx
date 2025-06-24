@@ -54,9 +54,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode = 'grid' })
     return (
       <motion.div
         whileHover={{ y: -2 }}
-        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex"
+        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex font-[Poppins]"
       >
-        <div className="w-48 h-48 relative overflow-hidden">
+        <div className="w-48 h-48 relative overflow-hidden font-[Poppins]">
           <img
             src={product.image}
             alt={product.name}
@@ -76,7 +76,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode = 'grid' })
           </motion.button>
         </div>
         
-        <div className="flex-1 p-6 flex flex-col justify-between">
+        <div className="flex-1 p-6 flex flex-col justify-between font-[Poppins]">
           <div>
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">
@@ -135,9 +135,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode = 'grid' })
   return (
     <motion.div
       whileHover={{ y: -8 }}
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group"
+      className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group font-[Poppins]"
     >
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden font-[Poppins]">
         <img
           src={product.image}
           alt={product.name}
@@ -171,7 +171,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode = 'grid' })
         </div>
       </div>
       
-      <div className="p-6">
+      <div className="p-6 font-[Poppins]">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">
             {product.category}
@@ -202,7 +202,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode = 'grid' })
             whileTap={{ scale: 0.95 }}
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed font-[Poppins]"
           >
             <ShoppingCart className="h-4 w-4" />
           </motion.button>

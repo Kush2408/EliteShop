@@ -53,7 +53,7 @@ const About = () => {
   ];
 
   return (
-    <div className="pt-20 min-h-screen bg-white dark:bg-gray-900">
+    <div className="pt-20 min-h-screen bg-white dark:bg-gray-900 font-[Poppins]">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-blue-900">
         <div className="container mx-auto px-4">

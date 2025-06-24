@@ -21,7 +21,7 @@ const Wishlist = () => {
 
   if (wishlistItems.length === 0) {
     return (
-      <div className="pt-20 min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="pt-20 min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center font-[Poppins]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

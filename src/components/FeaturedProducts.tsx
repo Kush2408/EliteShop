@@ -10,7 +10,7 @@ const FeaturedProducts = () => {
   const featuredProducts = products.slice(0, 8);
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
+    <section className="py-20 bg-white dark:bg-gray-900 font-[Poppins]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -50,7 +50,7 @@ const FeaturedProducts = () => {
         >
           <Link
             to="/products"
-            className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 font-[Poppins]"
           >
             <span>View All Products</span>
             <ArrowRight className="h-5 w-5" />

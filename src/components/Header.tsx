@@ -66,7 +66,7 @@ const Header = () => {
         : 'bg-transparent'
         }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 font-[Poppins]">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
