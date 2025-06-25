@@ -21,6 +21,7 @@ import AdminProducts from "./pages/admin/AdminProducts";
 import AdminOrders from "./pages/admin/AdminOrders";
 import AdminCustomers from "./pages/admin/AdminCustomers";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollTop";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ScrollToTop/>
+      {/* Main Application Routes */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
